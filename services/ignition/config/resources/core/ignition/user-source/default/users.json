@@ -3,12 +3,13 @@
     {
       "uuid": "331fefa5-51da-468f-984e-862eb1e880fc",
       "username": "admin",
+      "firstName": "",
       "schedule": "Always",
-      "password": "[98D38CC5]0052734cacb6d06d009ecba87a441095d79729e42e63bde1e2ed4e2727319ae1",
-      "passwordDate": "20250911.162431434+0000",
+      "password": "[45DAAF01]7887c9fb949af358837ff1fd7780be962dbfb4528934e707123fc2a8a8f65dcf",
+      "passwordDate": "20250913.194555637+0000",
       "passwordHistory": [],
       "createdDate": "20250911.162431433+0000",
-      "lastModifiedDate": "20250911.162431433+0000",
+      "lastModifiedDate": "20250913.194555637+0000",
       "roles": [
         "bb730533-d4a5-4d8b-9eb6-583c1feed39d"
       ],

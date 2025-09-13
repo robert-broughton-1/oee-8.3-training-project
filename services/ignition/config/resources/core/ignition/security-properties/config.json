@@ -1,7 +1,25 @@
 {
   "accessPermissions": {
-    "securityLevels": [],
-    "type": "AllOf"
+    "securityLevels": [
+      {
+        "children": [
+          {
+            "children": [],
+            "name": "Access"
+          },
+          {
+            "children": [],
+            "name": "Read"
+          },
+          {
+            "children": [],
+            "name": "Write"
+          }
+        ],
+        "name": "API Tokens"
+      }
+    ],
+    "type": "AnyOf"
   },
   "allowDesignerSSO": false,
   "allowUserAdmin": false,
@@ -9,7 +27,7 @@
     "securityLevels": [],
     "type": "AllOf"
   },
-  "designerAuthStrategy": "CLASSIC",
+  "designerAuthStrategy": "IDENTITY_PROVIDER",
   "designerAuthTokenInactivityTimeout": 10,
   "designerAuthTokenTimeToLive": 0,
   "designerPermissions": {
@@ -20,12 +38,15 @@
             "children": [
               {
                 "children": [],
+                "description": "System generated security level representing read and write privileges to Gateway configuration",
                 "name": "Administrator"
               }
             ],
+            "description": "Represents the roles that a user has.",
             "name": "Roles"
           }
         ],
+        "description": "Represents a user who has been authenticated by the system.",
         "name": "Authenticated"
       }
     ],
@@ -41,19 +62,35 @@
             "children": [
               {
                 "children": [],
+                "description": "System generated security level representing read and write privileges to Gateway configuration",
                 "name": "Administrator"
               }
             ],
+            "description": "Represents the roles that a user has.",
             "name": "Roles"
           }
         ],
+        "description": "Represents a user who has been authenticated by the system.",
         "name": "Authenticated"
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "name": "Read"
+          },
+          {
+            "children": [],
+            "name": "Write"
+          }
+        ],
+        "name": "API Tokens"
       }
     ],
     "type": "AnyOf"
   },
-  "systemAuthProfile": "temp",
-  "systemIdentityProvider": "temp",
+  "systemAuthProfile": "default",
+  "systemIdentityProvider": "default",
   "userInactivityTimeout": 10,
   "writePermissions": {
     "securityLevels": [
@@ -63,13 +100,25 @@
             "children": [
               {
                 "children": [],
+                "description": "System generated security level representing read and write privileges to Gateway configuration",
                 "name": "Administrator"
               }
             ],
+            "description": "Represents the roles that a user has.",
             "name": "Roles"
           }
         ],
+        "description": "Represents a user who has been authenticated by the system.",
         "name": "Authenticated"
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "name": "Write"
+          }
+        ],
+        "name": "API Tokens"
       }
     ],
     "type": "AnyOf"
