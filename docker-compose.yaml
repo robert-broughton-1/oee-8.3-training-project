@@ -7,8 +7,6 @@ services:
       - ./services/ignition/projects:/usr/local/bin/ignition/data/projects
       - ./shared/gateway-utilities/projects/gateway-utilities:/usr/local/bin/ignition/data/projects/gateway-utilities
     environment:
-      GATEWAY_ADMIN_USERNAME: admin
-      GATEWAY_ADMIN_PASSWORD_FILE: /run/secrets/gateway-admin-password
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
       ACCEPT_IGNITION_EULA: "Y"
