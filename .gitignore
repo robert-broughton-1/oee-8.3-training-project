@@ -16,3 +16,16 @@ secrets/*
 
 # Migration logs
 **/migration-log*
+
+# Local Environment Variables
+.env
+
+# Node 
+node_modules
+
+# Tailwind compiled CSS
+tailwind/tailwind-compiled.css
+tailwind/node_modules
+
+# Temp test files
+temp/
