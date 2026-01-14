@@ -1,7 +1,8 @@
 ---
 services:
-  gateway:
-    image: inductiveautomation/ignition:8.3.0-rc1
+  Frontend:
+    image: inductiveautomation/ignition:8.3.2
+    user: "0:0"
     volumes:
       - ./services/ignition/config:/usr/local/bin/ignition/data/config 
       - ./services/ignition/projects:/usr/local/bin/ignition/data/projects
@@ -10,6 +11,8 @@ services:
       # Temporary volume to skip commissioning
       - ./services/ignition/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
     environment:
+      IGNITION_UID: 1000
+      IGNITION_GID: 1000
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
       ACCEPT_IGNITION_EULA: "Y"
@@ -64,8 +67,9 @@ services:
     networks:
       - default
       - proxy
-  broker:
-    image: inductiveautomation/ignition:latest
+  MQTTbroker:
+    image: inductiveautomation/ignition:8.3.2
+    user: "0:0"
     volumes:
       - ./services/ignition/broker/config:/usr/local/bin/ignition/data/config 
       - ./services/ignition/broker/projects:/usr/local/bin/ignition/data/projects
@@ -74,6 +78,8 @@ services:
       # Temporary volume to skip commissioning
       - ./services/ignition/broker/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
     environment:
+      IGNITION_UID: 1000
+      IGNITION_GID: 1000
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
       ACCEPT_IGNITION_EULA: "Y"
@@ -89,8 +95,9 @@ services:
       - default
       - proxy
 
-  publisher:
-    image: inductiveautomation/ignition:latest
+  SiteIOGateway:
+    image: inductiveautomation/ignition:8.3.2
+    user: "0:0"
     volumes:
       - ./services/ignition/publisher/config:/usr/local/bin/ignition/data/config
       - ./services/ignition/publisher/projects:/usr/local/bin/ignition/data/projects
@@ -98,6 +105,8 @@ services:
       # Temporary volume to skip commissioning
       - ./services/ignition/publisher/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
     environment:
+      IGNITION_UID: 1000
+      IGNITION_GID: 1000
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
       ACCEPT_IGNITION_EULA: "Y"
@@ -112,15 +121,17 @@ services:
       - default
       - proxy
 
-  subscriber:
-    image: inductiveautomation/ignition:latest
+  OEEBackend:
+    image: inductiveautomation/ignition:8.3.2
+    user: "0:0"
     volumes:
-      - ./services/ignition/subscriber/config:/usr/local/bin/ignition/data/config
-      - ./services/ignition/subscriber/projects:/usr/local/bin/ignition/data/projects
-      - ./services/ignition/third-party-modules/MQTT-Engine.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine.modl
-      # Temporary volume to skip commissioning
-      - ./services/ignition/subscriber/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
+    - ./services/ignition/subscriber/config:/usr/local/bin/ignition/data/config
+    - ./services/ignition/subscriber/projects:/usr/local/bin/ignition/data/projects
+    - ./services/ignition/third-party-modules/MQTT-Engine.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine.modl
+    - ./services/ignition/subscriber/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
     environment:
+      IGNITION_UID: 1000
+      IGNITION_GID: 1000
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
       ACCEPT_IGNITION_EULA: "Y"
