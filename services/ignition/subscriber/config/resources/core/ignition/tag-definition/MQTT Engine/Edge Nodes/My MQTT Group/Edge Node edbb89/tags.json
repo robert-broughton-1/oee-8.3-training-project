@@ -1,0 +1,9 @@
+[
+  {
+    "usr": {
+      "dataType": "Int4"
+    },
+    "name": "Test",
+    "tagType": "AtomicTag"
+  }
+]

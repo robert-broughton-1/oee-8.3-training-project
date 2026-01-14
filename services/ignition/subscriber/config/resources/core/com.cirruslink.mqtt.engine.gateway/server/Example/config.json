@@ -1,0 +1,22 @@
+{
+  "cleanSession": true,
+  "enableLegacyStateMessages": false,
+  "enablePrimaryHostSubscriptions": false,
+  "hostnameVerification": true,
+  "includeSparkplugDataTypes": true,
+  "keepAlive": 30,
+  "legacyStateHostnameVerification": true,
+  "password": {
+    "data": {
+      "ciphertext": "arogHwU-P3h_5w",
+      "encrypted_key": "WOVJVpdeWUKsjil6YOuZxbzBcnNhEcRImsmH6U4o04oq3eSU5j6T6Q",
+      "iv": "8Sl8NyedAU_J8gCJ",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY0ODkzMDA4LCJ6aXAiOiJERUYifQ",
+      "tag": "W6j0perDz4kieXqxja4HGg"
+    },
+    "type": "Embedded"
+  },
+  "serverSet": "Default Set",
+  "url": "tcp://broker:1883",
+  "username": "example"
+}

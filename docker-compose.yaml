@@ -64,6 +64,76 @@ services:
     networks:
       - default
       - proxy
+  broker:
+    image: inductiveautomation/ignition:latest
+    volumes:
+      - ./services/ignition/broker/config:/usr/local/bin/ignition/data/config 
+      - ./services/ignition/broker/projects:/usr/local/bin/ignition/data/projects
+      - ./services/ignition/third-party-modules/MQTT-Distributor.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor.modl
+
+      # Temporary volume to skip commissioning
+      - ./services/ignition/broker/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
+    environment:
+      IGNITION_EDITION: "standard"
+      DISABLE_QUICKSTART: "true"
+      ACCEPT_IGNITION_EULA: "Y"
+      ACCEPT_MODULE_LICENSES: com.cirruslink.mqtt.distributor.gateway
+      ACCEPT_MODULE_CERTS: com.cirruslink.mqtt.distributor.gateway
+    command: >
+      -n broker
+
+    labels:
+      traefik.enable: "true"
+      traefik.hostname: "broker"
+    networks:
+      - default
+      - proxy
+
+  publisher:
+    image: inductiveautomation/ignition:latest
+    volumes:
+      - ./services/ignition/publisher/config:/usr/local/bin/ignition/data/config
+      - ./services/ignition/publisher/projects:/usr/local/bin/ignition/data/projects
+      - ./services/ignition/third-party-modules/MQTT-Transmission.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission.modl
+      # Temporary volume to skip commissioning
+      - ./services/ignition/publisher/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
+    environment:
+      IGNITION_EDITION: "standard"
+      DISABLE_QUICKSTART: "true"
+      ACCEPT_IGNITION_EULA: "Y"
+      ACCEPT_MODULE_LICENSES: com.cirruslink.mqtt.transmission.gateway
+      ACCEPT_MODULE_CERTS: com.cirruslink.mqtt.transmission.gateway
+    command: >
+      -n publisher
+    labels:
+      traefik.enable: "true"
+      traefik.hostname: "publisher"
+    networks:
+      - default
+      - proxy
+
+  subscriber:
+    image: inductiveautomation/ignition:latest
+    volumes:
+      - ./services/ignition/subscriber/config:/usr/local/bin/ignition/data/config
+      - ./services/ignition/subscriber/projects:/usr/local/bin/ignition/data/projects
+      - ./services/ignition/third-party-modules/MQTT-Engine.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine.modl
+      # Temporary volume to skip commissioning
+      - ./services/ignition/subscriber/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
+    environment:
+      IGNITION_EDITION: "standard"
+      DISABLE_QUICKSTART: "true"
+      ACCEPT_IGNITION_EULA: "Y"
+      ACCEPT_MODULE_LICENSES: com.cirruslink.mqtt.engine.gateway
+      ACCEPT_MODULE_CERTS: com.cirruslink.mqtt.engine.gateway
+    command: >
+      -n subscriber
+    labels:
+      traefik.enable: "true"
+      traefik.hostname: "subscriber"
+    networks:
+      - default
+      - proxy
 
 networks:
   default:

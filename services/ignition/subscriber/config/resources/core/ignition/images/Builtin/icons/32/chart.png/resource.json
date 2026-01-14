@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "chart.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "import",
+      "timestamp": "2025-12-04T23:48:16Z"
+    },
+    "size": 1043,
+    "lastModificationSignature": "67f77e000161ca3c2d7eff4cf6454dd8217c0bf4a77ff5abea9f55dc10333e50",
+    "height": 32
+  }
+}

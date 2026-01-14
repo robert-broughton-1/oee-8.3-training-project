@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "monitor.png"
+  ],
+  "attributes": {
+    "width": 48,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "import",
+      "timestamp": "2025-12-04T23:48:16Z"
+    },
+    "size": 512,
+    "lastModificationSignature": "8298f7ace8a91daf17a0076d2d83b60116794eefad5a1b697cd06866710c88bd",
+    "height": 48
+  }
+}

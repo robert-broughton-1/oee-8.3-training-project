@@ -1,0 +1,22 @@
+{
+  "dataFormatTypeWrapper": "Sparkplug_B_v1_0_Protobuf",
+  "hostnameVerification": true,
+  "keepAlive": 30,
+  "mqttServerConnectionEnabled": true,
+  "password": {
+    "data": {
+      "ciphertext": "5CzhyMgZw4OzhQ",
+      "encrypted_key": "I84pJRMqUGTi8qOKCowkws6_DPmd-Zwpni48JxaFsqFli3U3B-8qTg",
+      "iv": "lz6VzXcyKySBXQ3Q",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY0ODkzMTIwLCJ6aXAiOiJERUYifQ",
+      "tag": "uwleK2eUnHnz2hDd7PJ8Tw"
+    },
+    "type": "Embedded"
+  },
+  "reconnectDelay": 1000,
+  "rpcHostnameVerification": true,
+  "serverSet": "Default",
+  "subscribeToLegacyStateTopic": true,
+  "url": "tcp://broker:1883",
+  "username": "example"
+}
